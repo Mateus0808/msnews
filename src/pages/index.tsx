@@ -47,14 +47,12 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     expand: ["product"],
   });
 
-  const unitPrice = price.unit_amount;
-
   const product = {
     priceId: price.id,
     amount: new Intl.NumberFormat("en-US", {
       style: "currency",
       currency: "USD",
-    }).format(unitPrice / 100),
+    }).format(price.unit_amount! / 100),
   };
 
   return {
