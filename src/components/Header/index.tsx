@@ -1,7 +1,7 @@
 import Image from "next/image";
 import logoImage from "../../../public/images/logo.svg";
+import Link from "next/link";
 import { SignInButton } from "../SignInButton";
-
 import styles from "./styles.module.scss";
 
 export function Header() {
@@ -10,10 +10,12 @@ export function Header() {
       <div className={styles.headerContent}>
         <Image height={88} width={88} src={logoImage} alt="ms.news" />
         <nav>
-          <a className={styles.active} href="#">
-            Home
-          </a>
-          <a href="">Posts</a>
+          <Link href="/">
+            <a className={styles.active}>Home</a>
+          </Link>
+          <Link href="/posts">
+            <a href="">Posts</a>
+          </Link>
         </nav>
 
         <SignInButton />
